@@ -1,0 +1,41 @@
+plugins:
+  - serverless-offline
+
+service: serverless-http-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+functions:
+  fetchAllEmployees:
+    handler: handler.fetchAllEmployees
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+  registerEmployees:
+    handler: handler.registerEmployees
+    events:
+      - httpApi:
+          path: /registerEmployee
+          method: post
+
+
+  updateEmployeeById:
+    handler: handler.updateEmployeeById
+    events:
+      - httpApi:
+          path: /updateEmployeeById
+          method: put
+
+
+  deleteEmployeeById:
+    handler: handler.deleteEmployeeById
+    events:
+      - httpApi:
+          path: /deleteEmployeeById
+          method: delete
+
