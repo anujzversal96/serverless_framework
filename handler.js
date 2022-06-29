@@ -4,25 +4,6 @@ const user = require('./models/userSchema');
 const connectToDatabase = require('./config/mongoose');
 
 
-// let cachedDb = null;
-
-// async function connectToDatabase() {
-//   if (cachedDb) {
-//     return cachedDb;
-//   }
-
-// const client = await MongoClient.connect
-// ("mongodb+srv://ranaanuj290:anuj84710%40@cluster0.2icgk.mongodb.net", {
-//   useNewUrlParser: true});
-
-// const db = await client.db("employeeDB");
-
-// cachedDb = db;
-// return db;
-
-// }
-
-
 module.exports.fetchAllEmployees = async (event, context) => {
 
   context.callbackWaitsForEmptyEventLoop = false;
@@ -148,7 +129,7 @@ else {
   });
   
 
-}
+};
 
 module.exports.updateEmployeeById = async (event, context) => {
 
@@ -223,7 +204,7 @@ if(event && event.body)
 
    console.log(JSON.parse(event.body));
 
-   employee = await user.findByIdAndUpdate(n._id,JSON.parse(event.body));
+   employee = await user.findByIdAndUpdate(n.pathParameters,JSON.parse(event.body));
 
    console.log(employee)
 }
@@ -260,8 +241,7 @@ return JSON.stringify({
 
 
 
-}
-
+};
 
 module.exports.deleteEmployeeById = async (event, context) => {
 

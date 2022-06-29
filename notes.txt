@@ -1,0 +1,18 @@
+
+// let cachedDb = null;
+
+// async function connectToDatabase() {
+//   if (cachedDb) {
+//     return cachedDb;
+//   }
+
+// const client = await MongoClient.connect
+// ("mongodb+srv://ranaanuj290:anuj84710%40@cluster0.2icgk.mongodb.net", {
+//   useNewUrlParser: true});
+
+// const db = await client.db("employeeDB");
+
+// cachedDb = db;
+// return db;
+
+// }
