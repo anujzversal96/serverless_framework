@@ -7,7 +7,7 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs16.x
-  
+
 functions:
   fetchAllEmployees:
     handler: handler.fetchAllEmployees
@@ -28,7 +28,7 @@ functions:
     handler: handler.updateEmployeeById
     events:
       - httpApi:
-          path: /updateEmployeeById
+          path: /updateEmployeeById/{id}
           method: put
 
 
@@ -36,6 +36,6 @@ functions:
     handler: handler.deleteEmployeeById
     events:
       - httpApi:
-          path: /deleteEmployeeById
+          path: /deleteEmployeeById/{id}
           method: delete
 
