@@ -1,21 +1,15 @@
 const mongoose = require('mongoose');
 require("dotenv").config();
 
-
-let cachedDb = null;
+const dbConnection = mongoose.connect(process.env.MongoDB_Connection, {
+    useNewUrlParser: true});
 
 async function connectToDatabase() {
-    if (cachedDb) {
-      return cachedDb;
-    }
-  
 
-  const db = await mongoose.connect(process.env.MongoDB_Connection, {
-      useNewUrlParser: true}
-  );
-  
-  cachedDb = db;
-  return db;
+
+
+    return dbConnection;
+    
   
   }
 
