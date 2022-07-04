@@ -1,9 +1,9 @@
 name: Deploy_Lambda
 
 on:
-  push:
+  create:
     tags:
-    - 'v[0-9]+ .[0-9]+ .[0-9]+'
+    - v*
 
 jobs:
   deploy_lambda:
