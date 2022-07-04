@@ -2,8 +2,8 @@ name: Deploy_Lambda
 
 on:
   push:
-    branches:
-    - master
+    tags:
+    - 'v[0-9]+ .[0-9]+ .[0-9]+'
 
 jobs:
   deploy_lambda:
